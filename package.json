@@ -37,7 +37,7 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
+    "eslint": "^7.25.0",
     "eslint-config-loopback": "^13.1.0",
     "juggler-v3": "file:./deps/juggler-v3",
     "juggler-v4": "file:./deps/juggler-v4",
