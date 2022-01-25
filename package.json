@@ -29,7 +29,7 @@
   "dependencies": {
     "async": "^3.2.0",
     "bluebird": "^3.7.2",
-    "chalk": "^5.0.0",
+    "chalk": "^4.0.0",
     "debug": "^4.3.3",
     "loopback-connector": "^5.0.0",
     "pg": "^8.7.1",
