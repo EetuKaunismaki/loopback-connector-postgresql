@@ -473,7 +473,7 @@ Besides the basic LoopBack types, as we introduced above, you can also specify t
 </details>
 
 {% include warning.html content="
-Not all database types are supported for operating CRUD operations and queries with filters. For example, type Array cannot be filtered correctly, see GitHub issues: [# 441](https://github.com/strongloop/loopback-connector-postgresql/issues/441) and [# 342](https://github.com/strongloop/loopback-connector-postgresql/issues/342).
+Not all database types are supported for operating CRUD operations and queries with filters. For example, type Array cannot be filtered correctly, see GitHub issues: [# 441](https://github.com/loopbackio/loopback-connector-postgresql/issues/441) and [# 342](https://github.com/loopbackio/loopback-connector-postgresql/issues/342).
 " %}
 
 ### PostgreSQL types to LoopBack
@@ -553,6 +553,7 @@ CustomerRepository.find({
 PostgreSQL supports the following PostgreSQL-specific operators:
 
 - [`contains`](#operator-contains)
+- [`match`](#operator-match)
 
 Please note extended operators are disabled by default, you must enable
 them at datasource level or model level by setting `allowExtendedOperators` to
@@ -594,6 +595,36 @@ const posts = await postRepository.find({
   where: {
     {
       categories: {'contains': ['AA']},
+    }
+  }
+});
+```
+
+### Operator `match`
+
+The `match` operator allows you to perform a [full text search using the `@@` operator](https://www.postgresql.org/docs/10/textsearch-tables.html#TEXTSEARCH-TABLES-SEARCH) in PostgreSQL.
+
+Assuming a model such as this:
+```ts
+@model({
+  settings: {
+    allowExtendedOperators: true,
+  }
+})
+class Post {
+  @property({
+    type: 'string',
+  })
+  content: string;
+}
+```
+You can query the content field as follows:
+
+```ts
+const posts = await postRepository.find({
+  where: {
+    {
+      content: {match: 'someString'},
     }
   }
 });
@@ -716,6 +747,8 @@ export class Customer extends Entity {
         entity: 'Customer',
         entityKey: 'id',
         foreignKey: 'customerId',
+        onDelete: 'CASCADE',
+        onUpdate: 'SET NULL'
       },
     },
   })
@@ -767,7 +800,9 @@ export class Order extends Entity {
         "name": "fk_order_customerId",
         "entity": "Customer",
         "entityKey": "id",
-        "foreignKey": "customerId"
+        "foreignKey": "customerId",
+        "onDelete": "CASCADE",
+        "onUpdate": "SET NULL"
       }
     }
   },
@@ -790,7 +825,7 @@ export class Order extends Entity {
 </details>
 <br>
 {% include tip.html content="
-Removing or updating the value of `foreignKeys` will be updated or delete or update the constraints in the db tables. If there is a reference to an object being deleted then the `DELETE` will fail. Likewise if there is a create with an invalid FK id then the `POST` will fail.
+Removing or updating the value of `foreignKeys` will be updated or delete or update the constraints in the db tables. If there is a reference to an object being deleted then the `DELETE` will fail. Likewise if there is a create with an invalid FK id then the `POST` will fail. The `onDelete` and `onUpdate` properties are optional and will default to `NO ACTION`.
 " %}
 
 ### Auto-generated ids
