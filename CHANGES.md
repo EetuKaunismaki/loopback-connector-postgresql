@@ -1,3 +1,97 @@
+2023-04-13, Version 6.0.3
+=========================
+
+ * chore(deps): update dependency eslint to v8.37.0 (renovate[bot])
+
+ * chore(deps): update dependency sinon to v15.0.3 (renovate[bot])
+
+ * chore(deps): update dependency @commitlint/cli to v17.5.1 (renovate[bot])
+
+ * fix(deps): update dependency pg to v8.10.0 (renovate[bot])
+
+ * fix(deps): update dependency loopback-connector to v5.2.2 (renovate[bot])
+
+ * chore(deps): update dependency eslint to v8.36.0 (renovate[bot])
+
+ * chore(deps): update dependency @commitlint/cli to v17.5.0 (renovate[bot])
+
+ * chore(deps): update dependency loopback-datasource-juggler to v4.28.3 (renovate[bot])
+
+ * chore(deps): lock file maintenance (renovate[bot])
+
+
+2023-02-02, Version 6.0.2
+=========================
+
+ * fix: remove deprecated juggler-v3 and juggler-v4 deps folder and test cases (Samarpan Bhattacharya)
+
+ * chore(deps): lock file maintenance (renovate[bot])
+
+
+2023-01-09, Version 6.0.1
+=========================
+
+ * chore(deps): lock file maintenance (renovate[bot])
+
+ * chore(deps): update dependency sinon to v15 (renovate[bot])
+
+
+2022-11-28, Version 6.0.0
+=========================
+
+ * feat(postgresql): add support for multiple insert in one query using createAll() of connector (Samarpan Bhattacharya)
+
+ * chore(deps): lock file maintenance (renovate[bot])
+
+ * chore: add lock-file maintenance (renovate) (Francisco Buceta)
+
+ * fix(deps): update dependency uuid to v9 (renovate[bot])
+
+ * chore(deps): update dependency eslint to v8 (renovate[bot])
+
+ * chore(deps): update dependency mocha to v10 (renovate[bot])
+
+ * chore: sign off renovatebot PR (Francisco Buceta)
+
+ * ci: run commit-lint job only on PR (Francisco Buceta)
+
+ * test: solution to alphabetical order in github actions (Francisco Buceta)
+
+ * ci: disable fast-fail (Francisco Buceta)
+
+ * chore: remove redundant code (Francisco Buceta)
+
+ * chore: order keys and install @commitlint/cli locally (Francisco Buceta)
+
+ * ci: remove test in NodeJS version 12 and add version 18 (Francisco Buceta)
+
+
+2022-09-29, Version 5.5.2
+=========================
+
+ * chore(deps): update actions/setup-node action to v3 (renovate[bot])
+
+ * chore(deps): update actions/checkout action to v3 (renovate[bot])
+
+ * chore(deps): add renovate.json (renovate[bot])
+
+ * fix: crash with blank `url` (Rifa Achrinza)
+
+
+2022-08-06, Version 5.5.1
+=========================
+
+ * fix: improve filter sanitisation (Rifa Achrinza)
+
+ * fix: debug prints the password in plain text (Francisco Buceta)
+
+ * docs: add SECURITY.md (Diana Lau)
+
+ * docs: update coc (Diana Lau)
+
+ * docs: add code of conduct (Diana Lau)
+
+
 2022-01-13, Version 5.5.0
 =========================
 
